@@ -17,12 +17,41 @@
     <div class="container-fluid">
         {% include 'header.html' %}
         <div class="row">
-            <div class="col-sm-3"> <!-- Left -->
+            <div class="col-sm-4"> <!-- Left -->
                 <div class="card">
                     <div class="card-header">
                         <h3><center>
                             <p style='font-family:標楷體;font-size:30pt;'>
                                 各大圖書館連結
+                            </p>
+                        </center></h3>
+                    </div>
+                    <div class="card-body">
+                        <div class='list-group'>
+                            <p style='font-family:標楷體;font-size:18pt;'>
+                                <a href='https://www.ncl.edu.tw/' class='list-group-item'>國家圖書館</a>
+                                <a href='https://tpml.gov.taipei/' class 'list-group-item'>台北市立圖書館</a>
+                                <a href='https://www.library.ntpc.gov.tw/' class='list-group-item'>新北市立圖書館</a>
+                                <a href='https://www.typl.gov.tw/zh-tw' class='list-group-item'>桃園市立圖書館</a>
+                                <a href='https://www.library.taichung.gov.tw/public/' class='list-group-item'>台中市立圖書館</a>
+                                <a href='https://www.tnpl.tn.edu.tw/w5368759830002704284/index' class='list-group-item'>台南市立圖書館</a>
+                                <a href='https://www.ksml.edu.tw/' class='list-group-item'>高雄市立圖書館</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4"> <!-- Center -->
+                <!-- Your center content here -->
+            </div>
+
+            <div class="col-sm-4"> <!-- Right -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3><center>
+                            <p style='font-family:標楷體;font-size:30pt;'>
+                                圖書館連結
                             </p>
                         </center></h3>
                     </div>
@@ -36,44 +65,6 @@
                                 <a href='https://www.library.taichung.gov.tw/public/' class='list-group-item'>台中市立圖書館</a>
                                 <a href='https://www.tnpl.tn.edu.tw/w5368759830002704284/index' class='list-group-item'>台南市立圖書館</a>
                                 <a href='https://www.ksml.edu.tw/' class='list-group-item'>高雄市立圖書館</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-6"> <!--左右 -->
-                <div class="card">
-                    <div class="card-header">
-                        {% block headmessage %} 
-                        {% endblock %}
-                    </div>
-                    <div class="card-body">
-                        {% block content %} {% endblock %}
-                    </div>
-                    <div class="card-footer">
-                        {% include 'footer.html' %}
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-3"> <!-- Right -->
-                <div class="card">
-                    <div class="card-header">
-                        <h3><center>
-                            <p style='font-family:標楷體;font-size:30pt;'>
-                                好書推薦
-                            </p>
-                        </center></h3>
-                    </div>
-                    <div class="card-body">
-                        <div class='list-group'>
-                            <p style='font-family:標楷體;font-size:18pt;'>
-                                <a href='http://127.0.0.1:8000/post/life/' class='list-group-item'>生活是無以名狀的碎片</a>
-                                <a href='http://127.0.0.1:8000/post/Finally/' class='list-group-item'>終於要與自己和好如初</a>
-                                <a href='http://127.0.0.1:8000/post/you/' class='list-group-item'>想把餘生的溫柔都給你</a>
-                                <a href='http://127.0.0.1:8000/post/stranger/' class='list-group-item'>你是我最熟悉的陌生人</a>
-                                <a href='http://127.0.0.1:8000/post/My/' class='list-group-item'>我的存在 本來就值得青睞</a>
                             </p>
                         </div>
                     </div>

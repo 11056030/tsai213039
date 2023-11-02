@@ -15,14 +15,14 @@
                 <a href='/post/{{post.slug}}'>{{ post.title }}</a>
             </p>
         </div>
-        <div class='card-body' style='background-color:#FFFFF4'>
+        <div class='card-body' style='background-color:rgb(213, 225, 245)'>
             <p>
             {{ post.body | truncatechars:40 }}
             </p>
         </div>
         <div class='card-footer'  style='background-color:#efefef'>
             <p>
-                發佈時間：
+                上架時間：{{ post.pub_date | date:"Y/m/d"}}
             </p>
         </div>
     </div>
