@@ -14,12 +14,6 @@
             <p style='font-family:標楷體;font-size:14pt;font-weight:bold;font-color:#cccccc;'>
                 <a href='/post/{{post.slug}}'>{{ post.title }}</a>
             </p>
-        </div>
-        <div class='card-body' style='background-color:rgb(213, 225, 245)'>
-            <p>
-            {{ post.body | truncatechars:40 }}
-            </p>
-        </div>
         <div class='card-footer'  style='background-color:#efefef'>
             <p>
                 上架時間：{{ post.pub_date | date:"Y/m/d"}}
