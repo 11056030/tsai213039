@@ -6,7 +6,9 @@ from django.shortcuts import redirect
 from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, reverse
 from django.utils.text import slugify
 
-
+def post_list(request):
+    posts = Post.objects.all()  # 从数据库中检索帖子
+    return render(request, 'your_template.html', {'posts': posts})
 # Create your views here.
 def homepage(request):
     posts=Post.objects.all()

@@ -3,7 +3,7 @@ from mysite.models import Post
     
 
 class PostAdmin(admin.ModelAdmin):    #管理者介面可以多看到這幾個
-    list_display=('title','slug','pub_date')
+    list_display=('title','slug','pub_date', 'image_url')
     
 # Register your models here.
 admin.site.register(Post,PostAdmin)

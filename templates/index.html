@@ -11,6 +11,7 @@
 <center>
     <div class='card' > 
         <div class='card-header'>
+            <img src="{{ post.image_url }}" alt="Image Description" width="150">
             <p style='font-family:標楷體;font-size:14pt;font-weight:bold;font-color:#cccccc;'>
                 <a href='/post/{{post.slug}}'>{{ post.title }}</a>
                 <a href='/post/{{post.slug}}' style="margin-left: 10px">{{post.formatted_is_borrow|safe}}</a>

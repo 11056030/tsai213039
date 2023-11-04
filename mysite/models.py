@@ -5,6 +5,7 @@ from django.utils.translation import gettext as _
 class Post(models.Model):
     title = models.CharField(max_length=50)
     write = models.CharField(max_length=50, default="不詳")
+    image_url = models.CharField(max_length=255, default='images/1.jpg')  # 指定默认值 # 存储图像路径或 URL
     slug = models.CharField(max_length=200)
     bookstype=[("一般書籍","一般書籍"),("教學用書","教學用書")]
     category = models.CharField(max_length=20, choices=bookstype, default="一般書籍")
