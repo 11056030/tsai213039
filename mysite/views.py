@@ -6,14 +6,17 @@ from django.shortcuts import redirect
 from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, reverse
 from django.utils.text import slugify
 
+# Create your views here.
 def post_list(request):
     posts = Post.objects.all()  # 从数据库中检索帖子
     return render(request, 'your_template.html', {'posts': posts})
-# Create your views here.
+
 def homepage(request):
-    posts=Post.objects.all()
-    now=datetime.now()
-    return render(request,"index.html",locals())
+    # 从数据库中检索帖子并按发布日期从旧到新排序
+    posts = Post.objects.all().order_by('pub_date')
+
+    # 渲染模板并传递排序后的书籍列表
+    return render(request, 'index.html', {'posts': posts})
 
 def showpost(request,slug):
     try:
