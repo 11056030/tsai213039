@@ -12,7 +12,7 @@
     {% if books %}
         <ul class="list-group">
             {% for book in books %}
-                <li class="list-group-item d-flex justify-content-between align-items-center" style="background-color:#e7e7e2;">
+                <li class="list-group-item d-flex justify-content-between align-items-center" style="background-color:rgb(226, 229, 231);">
                     <div>
                         <strong>{{ book.title }}</strong> - {{ book.write }}
                         {% if book.isBorrow %}
@@ -31,5 +31,5 @@
     {% else %}
         <p>No books available.</p>
     {% endif %}
-    <a class="btn btn-sm" style="background-color:#d0d0c8; color: #ffffff; margin-top: 10px;" href='/'>回首頁</a>
+    <a class="btn btn-sm" style="background-color:#d0c9c8; color: #ffffff; margin-top: 10px;" href='/'>回首頁</a>
 {% endblock %}

@@ -2,6 +2,7 @@
 
 <!-- header.html -->
 {% load static %}
+{% if request.path == '/'%}{#ffffff#}
 <div class='well'>
     <br>
     <br>
@@ -9,3 +10,4 @@
     <h5  style="font-family:微軟正黑體;color:#4d2a2a;;"><center>11056021李恩、11056030蔡依恬、11056039吳怡萱</center></h5>
     <P ALIGN="left"> <img src="{% static "images/3.jpg" %}" width="100%">
 </div>
+{%endif%}
