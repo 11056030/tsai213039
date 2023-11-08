@@ -1,29 +1,40 @@
+<!--<<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+-->
+
 {% extends "base.html" %}
 {% block title %} {{ post.title }} 借還書系統 {% endblock %}
 {% block headmessage %}
-    <div class="card" style="background-color:#d0d0c8;">
-        <div class="card"; style="background-color:#d0d0c8; text-align: center;">
-            <h3 style="font-family:微軟正黑體; color:#ffffff; margin-left: 10px; margin-bottom: 0px; padding: 10px">借還書系統</h3>
-        </div>
-    </div>
+<div class="card" style="background-color: rgb(136, 126, 124); text-align: center;">
+    <h3 style="font-family: 微軟正黑體;font-size: 35px; color: #ffffff; margin: 0; padding: 10px; display: flex; justify-content: center; align-items: center;">
+        <span>借還書系統</span>
+        <a class="btn btn-sm btn-outline-primary" style="background-color: #939391ce;font-size: 20px; color: #ffffff; margin-top: 10px; display: flex; align-items: center; padding: 0.2rem 0.6rem; margin-left: 1em; border: none;" href='/'>回首頁</a>
+    </h3>
+</div>
+</div>
 {% endblock %}
 
 {% block content %}
     {% if books %}
         <ul class="list-group">
             {% for book in books %}
-                <li class="list-group-item d-flex justify-content-between align-items-center" style="background-color:rgb(226, 229, 231);">
+                <li class="list-group-item d-flex justify-content-between align-items-center" style="background-color:rgb(226, 229, 231);font-size: 22px;height:65px">
                     <div>
                         <strong>{{ book.title }}</strong> - {{ book.write }}
+                        
+                        
                         {% if book.isBorrow %}
-                            <span class="badge bg-danger">外借中</span>
-                        {% else %}
-                            <span class="badge bg-success">可借閱</span>
+                            <span class="badge" style="background-color: #9fa2a4; color: #fff;">外借中</span>
+                            
+                            {% else %}
+                            <span class="badge" style="background-color: #7991b1; color: #ffffff;">可借閱</span>
                         {% endif %}
                     </div>
-                    <div>
-                        <a href="{% url 'borrow_book' book.id %}" class="btn btn-primary btn-sm">我要借書</a>
-                        <a href="{% url 'return_book' book.id %}" class="btn btn-warning btn-sm">我要還書</a>
+                    <div style="text-align: center;">
+                        <a href="{% url 'borrow_book' book.id %}" class="btn btn-primary btn-sm" style="background-color: #829bbee4 ;color: rgb(255, 255, 255); font-size: 20px; border: none;" data-toggle="modal" data-target="#borrowSuccessModal">我要借書</a>
+                        <a href="{% url 'return_book' book.id %}" class="btn btn-warning btn-sm" style="background-color: #939391ce; color: #ffffff;font-size: 20px ; border: none;">我要還書</a>
                     </div>
                 </li>
             {% endfor %}
@@ -31,5 +42,7 @@
     {% else %}
         <p>No books available.</p>
     {% endif %}
-    <a class="btn btn-sm" style="background-color:#d0c9c8; color: #ffffff; margin-top: 10px;" href='/'>回首頁</a>
+    
+    
 {% endblock %}
+    

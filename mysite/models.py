@@ -18,9 +18,9 @@ class Post(models.Model):
     @property
     def formatted_is_borrow(self):
         if self.isBorrow:
-            return '<span style="color: white; background-color: red; border: 1px solid white; padding: 3px; border-radius: 3px;">外借中</span>'
+            return '<span style="color: white; background-color: #afb0b2; border: 1px solid white; padding: 3px; border-radius: 3px;">外借中</span>'
         else:
-            return '<span style="color: white; background-color: red; border: 1px solid white;padding: 3px; border-radius: 3px;">可借閱</span>'
+            return '<span style="color: white; background-color: #7fade5; border: 1px solid white;padding: 3px; border-radius: 3px;">可借閱</span>'
 
     formatted_is_borrow.fget.short_description = "外借狀態"
     

@@ -29,7 +29,7 @@ def showpost(request,slug):
         return redirect("/")
     
 def book_list(request):
-    books = Post.objects.all()
+    books = Post.objects.all()[::-1]
     return render(request, 'book_list.html', {'books': books})
 
 def borrow_book(request, book_id):
