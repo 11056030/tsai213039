@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from mysite import views as mv
-from mysite.views import book_list, borrow_book, return_book
+from mysite.views import book_list, borrow_book, return_book, login
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,6 +26,6 @@ urlpatterns = [
     path('book_list/', book_list, name='book_list'),
     path('borrow/<int:book_id>/', borrow_book, name='borrow_book'),
     path('return/<int:book_id>/', return_book, name='return_book'),
-
+    path('login/', login, name="login"),
 ]
 

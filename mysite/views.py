@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from mysite.models import Post
+from mysite.models import User
 from django.http import HttpResponse
 from datetime import datetime
 from django.shortcuts import redirect
@@ -49,3 +50,17 @@ def return_book(request, book_id):
         book.save()
 
     return HttpResponseRedirect(reverse('book_list'))
+
+def login(request):
+    return render(request, 'login.html')
+
+def checkuser(request, username, password):
+    user = get_object_or_404(User, name=username)
+    if user.password == password:
+        posts = Post.objects.all().order_by('pub_date')
+        return render(request, 'index.html', {'posts': posts})
+    else:
+        return render(request, 'register.html')
+
+    
+        
