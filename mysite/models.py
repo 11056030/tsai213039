@@ -1,12 +1,14 @@
 from django.db import models
 from django.utils.translation import gettext as _
 
-# Create your models here.
+
+
 class Post(models.Model):
     title = models.CharField(max_length=50)
-    write = models.CharField(max_length=50, default="不詳")
+    slug = models.IntegerField(unique=True)
+    pub_date = models.DateTimeField(auto_now_add=True)
+    write = models.CharField(max_length=50, blank=True, default='')
     image_url = models.CharField(max_length=255, default='images/1.jpg')  # 指定默认值 # 存储图像路径或 URL
-    slug = models.CharField(max_length=200)
     bookstype=[("一般書籍","一般書籍"),("教學用書","教學用書")]
     category = models.CharField(max_length=20, choices=bookstype, default="一般書籍")
     intro = models.TextField(default="", blank=True)
@@ -14,7 +16,7 @@ class Post(models.Model):
     body = models.TextField()
     isBorrow = models.BooleanField(_("外借中"), default=False)
     pub_date = models.DateTimeField(auto_now_add=True)
-
+    
     @property
     def formatted_is_borrow(self):
         if self.isBorrow:
@@ -25,7 +27,7 @@ class Post(models.Model):
     formatted_is_borrow.fget.short_description = "外借狀態"
     
     class Meta:
-        ordering = ("-pub_date",) 
+        ordering = ['slug'] 
     def __str__(self):
         return self.title
     
@@ -56,4 +58,16 @@ class Migration(migrations.Migration):
         ),
     ]
 
+class User(models.Model):
+    name = models.CharField(max_length=20, null=False)
+    email = models.EmailField()
+    password = models.CharField(max_length=20, null=False)
+    enabled = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name
     
+class BorrowRecord(models.Model):
+    username = models.CharField(max_length=20, null=False, default='null')
+    bookid = models.IntegerField(null=False, default=0)
+    borrow_date = models.DateField()

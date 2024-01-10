@@ -1,0 +1,40 @@
+
+<!-- index.html -->
+{% extends 'staff.html' %}
+{% block title %} 圖書館 {% endblock %}
+{% block headmessage %} 
+<div class="container-fluid">
+    <h3 style='font-family:標楷體;color:rgb(112, 74, 76)'><center>本館藏書</center></h3>
+{% endblock %}
+{% block content %} 
+
+<div class="row">
+    {% for post in posts %}
+        <div class="col-md-6" style="height: 430px;" >
+            <div class="card" >
+                <div class="card-header"  style='background-color:#ffffff'>
+                    <center>
+                    <img src="{{ post.image_url }}" alt="Image Description" height="180">
+                    <br>
+                    <br>
+                    <p style='font-family:標楷體;font-size:14pt;font-weight:bold;color:#fa2f2f;'>
+                        <a href='/post/{{post.slug}}' style="text-decoration: none; color: rgb(107, 81, 82);">{{ post.title }}</a>
+
+                        <br>
+                        <a href='/post/{{post.slug}}' style="text-decoration: none; margin-left: 10px">{{post.formatted_is_borrow|safe}}</a>
+                    
+                    </p>
+                    </center>
+                </div>
+                <div class="card-footer" style='color: rgb(107, 81, 82);'><center>
+                    <p>
+                        上架時間：{{ post.pub_date | date:"Y/m/d"}}
+                    </p></center>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+</div>
+{% endblock %}
+
