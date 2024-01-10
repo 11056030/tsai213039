@@ -1,0 +1,49 @@
+{% extends 'base copy.html' %}
+
+{% block content %}
+  <a class="btn btn-sm btn-outline-primary" style="background-color: #939391ce;font-size: 20px; color: #ffffff; margin-top: 10px; display: flex; align-items: center; padding: 0.2rem 0.6rem;  border: none;" href='/'>回首頁</a>
+  <h2>圖書搜索結果</h2>
+
+  <form method="get" action="{% url 'search_books' %}" style="margin-top: 20px; display: flex; align-items: center; margin-top: 15px; margin-bottom: 15px; margin-left: 10px;">
+      <input type="text" name="q" id="search" required style="margin-right: 10px;  padding: 5px;">
+      <button type="submit" style="background-color: #FFF4C1; color: #842B00; padding: 5px 10px; border: none; cursor: pointer; border-radius: 10px;;">搜尋</button>
+  </form>
+
+  <ul>
+    {% if results %}
+    <ul>
+      <h3>相似書籍</h3>
+      {% for post in results %}
+        <li>
+          <div class="col-md-6" style="height: 430px;" >
+            <div class="card" >
+                <div class="card-header"  style='background-color:#ffffff'>
+                    <center>
+                    <img src="{{ post.image_url }}" alt="Image Description" height="180">
+                    <br>
+                    <br>
+                    <p style='font-family:標楷體;font-size:14pt;font-weight:bold;color:#fa2f2f;'>
+                        <a href='/post/{{post.slug}}' style="text-decoration: none; color: rgb(107, 81, 82);">{{ post.title }}</a>
+
+                        <br>
+                        <a href='/post/{{post.slug}}' style="text-decoration: none; margin-left: 10px">{{post.formatted_is_borrow|safe}}</a>
+                    
+                    </p>
+                    </center>
+                </div>
+                <div class="card-footer" style='color: rgb(107, 81, 82);'><center>
+                    <p>
+                        上架時間：{{ post.pub_date | date:"Y/m/d"}}
+                    </p></center>
+                </div>
+            </div>
+        </div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>查無相關書籍</p>
+  {% endif %}
+  </ul>
+{% endblock %}
+path('search_books/', search_books, name='search_books'),
