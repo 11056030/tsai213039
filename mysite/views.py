@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from mysite.models import Post
+from mysite.models import User
 from django.http import HttpResponse
 from datetime import datetime
 from django.shortcuts import redirect,render, get_object_or_404, HttpResponseRedirect, reverse
@@ -183,6 +184,7 @@ def return_book(request, book_id):
         book.isBorrow = False
         book.save()
         BorrowRecord.objects.filter(username = username, bookid = book.id).delete()
+<<<<<<< HEAD
 
     return HttpResponseRedirect(reverse('book_list'))
 
@@ -198,3 +200,56 @@ def search_books(request):
     else:
         return render(request, 'search_results.html')
 
+=======
+<<<<<<< HEAD
+
+    return HttpResponseRedirect(reverse('book_list'))
+
+from django.db.models import Q
+
+
+
+def search_books(request):
+    if 'q' in request.GET:
+        query = request.GET['q']
+        results =Post.objects.filter(title__icontains=query) 
+        return render(request, 'search_results.html',{'results': results, 'query': query})
+    else:
+        return render(request, 'search_results.html')
+
+=======
+
+    return HttpResponseRedirect(reverse('book_list'))
+
+from django.db.models import Q
+
+
+
+def search_books(request):
+    if 'q' in request.GET:
+        query = request.GET['q']
+        results =Post.objects.filter(title__icontains=query) 
+        return render(request, 'search_results.html',{'results': results, 'query': query})
+    else:
+        return render(request, 'search_results.html')
+
+<<<<<<< HEAD
+=======
+    return HttpResponseRedirect(reverse('book_list'))
+
+def login(request):
+    return render(request, 'login.html')
+
+def checkuser(request, username, password):
+    user = get_object_or_404(User, name=username)
+    if user.password == password:
+        posts = Post.objects.all().order_by('pub_date')
+        return render(request, 'index.html', {'posts': posts})
+    else:
+        return render(request, 'register.html')
+
+    
+        
+>>>>>>> a5247b8e6337e31a53a11be917503f2528d4201c
+>>>>>>> f55f07ad9a867abd8275617248d902b5e596a7b0
+>>>>>>> 30ebf8d9e29b23ad8e00759559f0b8d87680f7ee
