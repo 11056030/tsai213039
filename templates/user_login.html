@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+{% for message in messages %}
+    <div class='alert alert-{{message.tags}}'>{{ message }}</div>
+    
+{% endfor %}
+
+    <h1>Login</h1>
+    <a class="btn btn-sm btn-outline-primary" style="background-color: #939391ce; font-size: 26px; color: #ffffff; margin-top: 10px; display: flex; align-items: center; justify-content: center; padding: 0.2rem 0.6rem; border: none; text-decoration: none;" href='/'>home</a>
+    <br>
+
+    <form method="post" action="{% url 'user_login' %}" style="display: flex; flex-direction: column; align-items: center;">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <div style="display: flex; gap: 10px;">
+            <input type="button" value="Clear" onclick="clearForm()">
+            <input type="submit" value="Login">
+        </div>
+    </form>
+    <script>
+        function clearForm() {
+            document.getElementById("username").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("password").value = "";
+        }
+    </script>
+</body>
+</html>
+
+

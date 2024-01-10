@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+</head>
+<body>
+    <h1>Register</h1>
+    <a class="btn btn-sm btn-outline-primary" style="background-color: #939391ce; font-size: 26px; color: #ffffff; margin-top: 10px; display: flex; align-items: center; justify-content: center; padding: 0.2rem 0.6rem; border: none; text-decoration: none;" href='/'>home</a>
+    <br>
+
+    <form method="post" action="{% url 'user_register' %}" style="display: flex; flex-direction: column; align-items: center;">
+        {% csrf_token %}
+        {{ form }}
+        
+            <input class="btn btn-success" type="submit" value="儲存" />
+        </div>
+    </form>
+    
+    <script>
+        function clearForm() {
+            document.getElementById("username").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("password").value = "";
+        }
+    </script>
+</body>
+</html>
