@@ -59,6 +59,10 @@ class Migration(migrations.Migration):
     ]
 
 class User(models.Model):
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> f55f07ad9a867abd8275617248d902b5e596a7b0
     name = models.CharField(max_length=20, null=False)
     email = models.EmailField()
     password = models.CharField(max_length=20, null=False)
@@ -71,3 +75,15 @@ class BorrowRecord(models.Model):
     username = models.CharField(max_length=20, null=False, default='null')
     bookid = models.IntegerField(null=False, default=0)
     borrow_date = models.DateField()
+<<<<<<< HEAD
+=======
+=======
+    
+    name = models.CharField(max_length=20)
+    password = models.CharField(max_length=20)
+
+    def __str__(self):
+            return self.name
+    
+>>>>>>> a5247b8e6337e31a53a11be917503f2528d4201c
+>>>>>>> f55f07ad9a867abd8275617248d902b5e596a7b0
